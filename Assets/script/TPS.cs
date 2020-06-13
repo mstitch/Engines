@@ -9,15 +9,20 @@ public class TPS : MonoBehaviour
     public LayerMask camadaChao;
     public Animator anim;
 
+
     Transform tr;
     Rigidbody rb;
     Transform trCam;
+
+    SistemaSom sistemaDeSom;
 
     void Awake()
     {
         tr = GetComponent<Transform>();
         rb = GetComponent<Rigidbody>();
         trCam = GameObject.FindWithTag("Tripe").GetComponent<Transform> ();
+        sistemaDeSom = GameObject.FindWithTag("MainCamera").GetComponent<SistemaSom>();
+
     }
 
     void FixedUpdate()
@@ -27,7 +32,9 @@ public class TPS : MonoBehaviour
         float movH = Input.GetAxis("Horizontal");
         float movV = Input.GetAxis("Vertical");
 
-        if (apertouAtaque) { anim.SetTrigger("atacou"); }
+        if (apertouAtaque) { anim.SetTrigger("atacou");
+            sistemaDeSom.Emitir(SistemaSom.EfeitoSonoro.Golpe);
+        }
 
         Vector3 mov = new Vector3(movH, 0, movV);
 

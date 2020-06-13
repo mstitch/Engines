@@ -15,7 +15,7 @@ public class ia : MonoBehaviour
     {
         time = 0;
         Esqueleto = GetComponent<NavMeshAgent>();
-        Jogador = GameObject.FindGameObjectWithTag("Jogador").transform;
+        Jogador = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame
