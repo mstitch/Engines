@@ -7,5 +7,13 @@ public class Vida : MonoBehaviour
 
     public float vida;
 
+
+    private void Update()
+    {
+        if (vida <= 0){
+            Destroy(gameObject);
+        }
+    }
+
 }
    
